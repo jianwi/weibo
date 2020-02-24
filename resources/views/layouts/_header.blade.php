@@ -4,10 +4,10 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <nav class="collapse  navbar-collapse " id="navBarNav">
+        <nav class="collapse  navbar-collapse justify-content-end" id="navBarNav">
             <div class="navbar-nav d-flex align-items-end">
                 <a href="{{route('help')}}" class="nav-item nav-link">帮助</a>
-                <a href="{{route('about')}}" class="nav-link">关于</a>
+                <a href="{{route('signup')}}" class="nav-link">注册</a>
             </div>
         </nav>
     </div>
