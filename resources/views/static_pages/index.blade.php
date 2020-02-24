@@ -14,6 +14,7 @@
         <a href="#" class="btn btn-lg btn-success" role="button">注册</a>
     </p>
 </div>
+
 @stop
 
 
