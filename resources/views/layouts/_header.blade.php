@@ -8,6 +8,7 @@
             <div class="navbar-nav d-flex align-items-end">
                 <a href="{{route('help')}}" class="nav-item nav-link">帮助</a>
                 <a href="{{route('signup')}}" class="nav-link">注册</a>
+                <a href="{{ route('login') }}" class="nav-link">登录</a>
             </div>
         </nav>
     </div>
