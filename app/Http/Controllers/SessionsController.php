@@ -89,9 +89,11 @@ class SessionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
         //
-
+        \Auth::logout();
+        session()->flash('success','您已成功退出!');
+        return redirect()->route('login');
     }
 }
