@@ -92,5 +92,6 @@ class SessionsController extends Controller
     public function destroy($id)
     {
         //
+
     }
 }
