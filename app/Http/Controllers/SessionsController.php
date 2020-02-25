@@ -6,41 +6,18 @@ use Illuminate\Http\Request;
 
 class SessionsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
         return view('sessions.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
         $credentials = $this->validate($request,[
             'email'=> 'required|max:255|email',
             'password'=> 'required'
         ]);
-        if (\Auth::attempt(['email'=> $request->email, 'password'=> $request->password,])){
+        if (\Auth::attempt($credentials,$request->has('remember'))){
             session()->flash('success','欢迎回来');
             return redirect()->route('users.show',[\Auth::user()]);
         }else{
@@ -49,50 +26,9 @@ class SessionsController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy()
     {
-        //
-        \Auth::logout();
+        Auth::logout();
         session()->flash('success','您已成功退出!');
         return redirect()->route('login');
     }
