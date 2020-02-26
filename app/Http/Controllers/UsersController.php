@@ -7,18 +7,26 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
-    //
+
+    public function __construct()
+    {
+        $this->middleware('auth',[
+            'except' => ['create', 'store']
+        ]);
+
+        $this->middleware('guest',[
+            'only'=>['create']
+        ]);
+    }
+
     public function create()
     {
         return view('users.create');
     }
 
-    public function index()
-    {
-        return view('users.index');
-    }
     public function show(User $user)
     {
+        $this->authorize('update',$user);
         return view('users.show',compact('user'));
     }
     public function store(Request $request)
@@ -41,10 +49,12 @@ class UsersController extends Controller
 
     public function edit(User $user)
     {
+        $this->authorize('update',$user);
         return view('users.edit',compact('user'));
     }
     public function update(User $user,Request $request)
     {
+        $this->authorize('update',$user);
         $this->validate($request,[
             'name' => 'required|max:50',
             'password' => 'nullable|confirmed|min:6'

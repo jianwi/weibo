@@ -19,7 +19,7 @@
                             <a href="{{ route('users.edit',Auth::user()) }}" class="dropdown-item">编辑资料</a>
                             <div class="dropdown-divider"></div>
                             <a href="" class="dropdown-item">
-                                <form action="{{ route('logout',Auth::user()) }}" method="post">
+                                <form action="{{ route('logout') }}" method="post">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                                     <button type="submit" class="btn btn-block btn-danger" name="button">

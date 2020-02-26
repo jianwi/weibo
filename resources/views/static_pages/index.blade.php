@@ -2,7 +2,7 @@
 @section('title','主页')
 
 @section('content')
-<div class="jumbotron">
+    <div class="jumbotron">
     <h1>Hello laravel</h1>
     <p class="lead">
         你现在看到的是主页
