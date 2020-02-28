@@ -8,7 +8,7 @@
             <div class="navbar-nav d-flex align-items-end">
                 @if(Auth::check())
                     <li class="nav-item">
-                        <a href="#" class="nav-link">用户列表</a>
+                        <a href="{{ route('users.index') }}" class="nav-link">用户列表</a>
                     </li>
                     <div class="nav-item dropdown show">
                         <a href="#" class="nav-link dropdown-toggle" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
