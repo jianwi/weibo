@@ -8,10 +8,21 @@
                     <section class="user-info">
                         @include('shared._user_info',['user'=>$user])
                     </section>
+
+                    <sction class="status">
+                        @if($statuses->count() > 0)
+                            <ul class="list-unstyled">
+                                @foreach($statuses as $status)
+                                    @include('statuses._status')
+                                @endforeach
+                            </ul>
+                            @else
+                                <p class="text-center">没有数据</p>
+                        @endif
+                    </sction>
                 </div>
             </div>
         </div>
     </div>
-    {{ $user->name }} - {{ $user->email }}
 @stop
 
