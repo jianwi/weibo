@@ -15,10 +15,10 @@ class StatusesTableSeeder extends Seeder
         $user_ids = [1,2,3];
         $faker = app(Faker\Generator::class);
 
-        $statuses = factory(\App\Models\Statuses::class)->times(100)->make()->each(function ($status) use($faker,$user_ids){
+        $statuses = factory(\App\Models\Status::class)->times(100)->make()->each(function ($status) use($faker,$user_ids){
             $status->user_id = $faker->randomElement($user_ids);
         });
-        \App\Models\Statuses::insert($statuses->toArray());
+        \App\Models\Status::insert($statuses->toArray());
 
     }
 }
